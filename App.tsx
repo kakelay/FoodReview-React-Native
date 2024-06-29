@@ -1,65 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import AppBar from './components/AppBar';
+import SizedBox from './components/SizedBox';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.darker :'#ffff',
+
   };
 
   return (
@@ -71,25 +31,31 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+        <AppBar />
+        <View style={styles.sectionContainer}>
+          <Text style={styles.sectionTitle}>UserName</Text>
+          <SizedBox height={8} />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Enter your username"
+            keyboardType='ascii-capable'
+          />
+          <SizedBox height={8} />
+          <Text style={styles.sectionTitle}>Gmail</Text>
+          <SizedBox height={8} />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Enter your email"
+            keyboardType="email-address"
+          />
+          <SizedBox height={8} />
+          <Text style={styles.sectionTitle}>PhoneNumber</Text>
+          <SizedBox height={8} />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Enter your phone number"
+            keyboardType="phone-pad"
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -98,20 +64,20 @@ function App(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    marginTop: 16,
+    paddingHorizontal: 16,
   },
   sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
+    fontSize: 16,
     fontWeight: '700',
+  },
+  textInput: {
+    height: 50,
+    borderColor: '#CCCCCC',
+    backgroundColor: '#daeaf5',
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    borderRadius: 8,
   },
 });
 
