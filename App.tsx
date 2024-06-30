@@ -32,7 +32,7 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <AppBar title1="location" title2="បុរីពិភពថ្មីចំការដូង" />
-        <ContainerImageCenter image='Image'/>
+        <ContainerImageCenter />
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
