@@ -13,13 +13,13 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppBar from './components/AppBar';
 import SizedBox from './components/SizedBox';
+import ContainerImageCenter from './components/ConaiterImageCenter';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker :'#ffff',
-
+    backgroundColor: isDarkMode ? Colors.darker : '#ffff',
   };
 
   return (
@@ -31,14 +31,15 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <AppBar />
+        <AppBar title1="location" title2="បុរីពិភពថ្មីចំការដូង" />
+        <ContainerImageCenter image='Image'/>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
           <TextInput
             style={styles.textInput}
             placeholder="Enter your username"
-            keyboardType='ascii-capable'
+            keyboardType="ascii-capable"
           />
           <SizedBox height={8} />
           <Text style={styles.sectionTitle}>Gmail</Text>
