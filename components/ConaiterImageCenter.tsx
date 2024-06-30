@@ -1,28 +1,25 @@
 import React from 'react';
-import {View, Text, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
-import SizedBox from './SizedBox';
+import { View, StyleSheet } from 'react-native';
+import { SvgUri } from 'react-native-svg';
 
-interface ContaieImageCenterProps {
-  image?: string;
+interface ContainerImageCenterProps {
   backgroundColor?: string;
 }
 
-const ContainerImageCenter: React.FC<ContaieImageCenterProps> = ({
-  image: Image,
-}) => {
+const ContainerImageCenter: React.FC<ContainerImageCenterProps> = () => {
+  const locationSvg = 'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/1x1/ad.svg';
+ 
+
   return (
     <View style={styles.appBarContainer}>
       <View style={styles.appBarActions}>
-        {Image && <Text style={styles.appBarTitle}>{Image}</Text>}
+        <SvgUri uri={locationSvg} width={24} height={24} />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    flex: 0,
-  },
   appBarContainer: {
     height: 56,
     justifyContent: 'center',
@@ -30,12 +27,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     paddingHorizontal: 16,
     backgroundColor: '#00A753',
-  },
-  appBarTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#ffffff',
-
   },
   appBarActions: {
     flexDirection: 'row',
