@@ -13,7 +13,7 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppBar from './components/AppBar';
 import SizedBox from './components/SizedBox';
-import ContainerImageCenter from './components/ConaiterImageCenter';
+import ContainerImageCenter from './components/ContainerImageCenter';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
