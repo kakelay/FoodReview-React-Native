@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
-  Text,
   NativeSyntheticEvent,
   NativeScrollEvent,
 } from 'react-native';
@@ -31,17 +30,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({images}) => {
   };
 
   return (
-    <View
-      style={{
-        marginVertical: 8,
-      }}>
+    <View style={{marginVertical: 8}}>
       <ScrollView
         pagingEnabled
         horizontal
-        contentContainerStyle={{
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+        contentContainerStyle={{alignItems: 'center', justifyContent: 'center'}}
         onScroll={onScrollChange}
         showsHorizontalScrollIndicator={false}
         style={{width}}
@@ -70,11 +63,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({images}) => {
       </ScrollView>
       <View style={styles.pagination}>
         {images.map((_, index) => (
-          <Text
+          <View
             key={index}
-            style={index === active ? styles.activeDot : styles.dot}>
-            •
-          </Text>
+            style={index === active ? styles.activeDot : styles.dot}
+          />
         ))}
       </View>
     </View>
@@ -85,16 +77,26 @@ const styles = StyleSheet.create({
   pagination: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: -20,
+    bottom: 10,
     alignSelf: 'center',
+    backgroundColor:'#666475',
+    paddingHorizontal:8,
+    paddingVertical:8,
+    borderRadius:16
   },
   dot: {
-    color: '#ECECEC',
-    fontSize: 50,
+    width: 20,
+    height: 8,
+    backgroundColor: '#ECECEC',
+    borderRadius: 8,
+    marginHorizontal: 2,
   },
   activeDot: {
-    color: '#0A4B78',
-    fontSize: 50,
+    width: 25,
+    height: 8,
+    backgroundColor: '#0A4B78',
+    borderRadius: 8,
+    marginHorizontal: 4,
   },
 });
 
