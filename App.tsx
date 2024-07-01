@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Image,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -15,13 +16,13 @@ import AppBar from './components/AppBar';
 import SizedBox from './components/SizedBox';
 import ContainerImageCenter from './components/ContainerImageCenter';
 import ImageSlider from './components/ImageSlider';
+import ImageTextRowWidget from './components/ImageTextRow';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : '#ffff',
-  
   };
   const images = [
     'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -47,7 +48,6 @@ function App(): React.JSX.Element {
         <ImageSlider images={images} />
 
         <View style={styles.sectionContainer}>
-           
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
           <TextInput
@@ -79,6 +79,8 @@ function App(): React.JSX.Element {
             placeholder="Enter your phone number"
             keyboardType="phone-pad"
           />
+
+         <ImageTextRowWidget/>
         </View>
       </ScrollView>
     </View>
@@ -101,6 +103,21 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 12,
     borderRadius: 8,
+  },
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+    marginRight: 10,
+  },
+  text: {
+    flexShrink: 1,
+    alignSelf: 'flex-start',
   },
 });
 
