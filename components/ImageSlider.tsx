@@ -16,7 +16,7 @@ interface ImageSliderProps {
 
 const ImageSlider: React.FC<ImageSliderProps> = ({images}) => {
   const {width} = Dimensions.get('window');
-  const height = width * 0.5;
+  const height = width * 0.4;
 
   const [active, setActive] = useState<number>(0);
 
@@ -31,26 +31,35 @@ const ImageSlider: React.FC<ImageSliderProps> = ({images}) => {
   };
 
   return (
-    <View style={{margin: 10}}>
+    <View
+      style={{
+        marginVertical: 8,
+      }}>
       <ScrollView
         pagingEnabled
         horizontal
         contentContainerStyle={{
           alignItems: 'center',
-          flexGrow: 1,
           justifyContent: 'center',
         }}
         onScroll={onScrollChange}
-        showsHorizontalScrollIndicator={false}>
+        showsHorizontalScrollIndicator={false}
+        style={{width}}
+        snapToAlignment="center"
+        decelerationRate="fast">
         {images.map((image, index) => (
           <View
             key={index}
-            style={{width, justifyContent: 'center', alignItems: 'center'}}
-            >
+            style={{
+              width,
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingHorizontal: 8,
+            }}>
             <Image
               source={{uri: image}}
               style={{
-                width: width,
+                width: width * 0.9 + 30,
                 height,
                 resizeMode: 'cover',
                 borderRadius: 8,
@@ -76,15 +85,15 @@ const styles = StyleSheet.create({
   pagination: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: -15,
+    bottom: -20,
     alignSelf: 'center',
   },
   dot: {
-    color: '#888',
+    color: '#ECECEC',
     fontSize: 50,
   },
   activeDot: {
-    color: '#23e418',
+    color: '#0A4B78',
     fontSize: 50,
   },
 });

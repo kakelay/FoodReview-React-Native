@@ -21,6 +21,7 @@ function App(): React.JSX.Element {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : '#ffff',
+  
   };
   const images = [
     'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -46,7 +47,7 @@ function App(): React.JSX.Element {
         <ImageSlider images={images} />
 
         <View style={styles.sectionContainer}>
-          <SizedBox height={20} />
+           
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
           <TextInput
@@ -86,7 +87,7 @@ function App(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    marginTop: 16,
+    // marginTop: 16,
     paddingHorizontal: 16,
   },
   sectionTitle: {
