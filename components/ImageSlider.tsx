@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Image,
@@ -10,21 +10,20 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 
-type ImageSliderProps = {
+interface ImageSliderProps {
   images: string[];
-};
+}
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
-  const { width } = Dimensions.get('window');
-  const height = width * 0.7;
+const ImageSlider: React.FC<ImageSliderProps> = ({images}) => {
+  const {width} = Dimensions.get('window');
+  const height = width * 0.5;
 
   const [active, setActive] = useState<number>(0);
 
-  const onScrollChange = ({
-    nativeEvent,
-  }: NativeSyntheticEvent<NativeScrollEvent>) => {
+  const onScrollChange = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const slide = Math.ceil(
-      nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
+      event.nativeEvent.contentOffset.x /
+        event.nativeEvent.layoutMeasurement.width,
     );
     if (slide !== active) {
       setActive(slide);
@@ -32,24 +31,39 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   };
 
   return (
-    <View>
+    <View style={{margin: 10}}>
       <ScrollView
         pagingEnabled
         horizontal
+        contentContainerStyle={{
+          alignItems: 'center',
+          flexGrow: 1,
+          justifyContent: 'center',
+        }}
         onScroll={onScrollChange}
-        showsHorizontalScrollIndicator={false}
-        style={{ width, height }}>
-        {images.map((image: string, index: number) => (
-          <Image
+        showsHorizontalScrollIndicator={false}>
+        {images.map((image, index) => (
+          <View
             key={index}
-            source={{ uri: image }}
-            style={{ width, height, resizeMode: 'cover' }}
-          />
+            style={{width, justifyContent: 'center', alignItems: 'center'}}
+            >
+            <Image
+              source={{uri: image}}
+              style={{
+                width: width,
+                height,
+                resizeMode: 'cover',
+                borderRadius: 8,
+              }}
+            />
+          </View>
         ))}
       </ScrollView>
       <View style={styles.pagination}>
-        {images.map((_, k: number) => (
-          <Text key={k} style={k === active ? styles.activeDot : styles.dot}>
+        {images.map((_, index) => (
+          <Text
+            key={index}
+            style={index === active ? styles.activeDot : styles.dot}>
             •
           </Text>
         ))}
@@ -62,7 +76,7 @@ const styles = StyleSheet.create({
   pagination: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 10,
+    bottom: -15,
     alignSelf: 'center',
   },
   dot: {
@@ -70,7 +84,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
   },
   activeDot: {
-    color: '#ff5900',
+    color: '#23e418',
     fontSize: 50,
   },
 });

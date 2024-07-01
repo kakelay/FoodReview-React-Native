@@ -14,6 +14,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AppBar from './components/AppBar';
 import SizedBox from './components/SizedBox';
 import ContainerImageCenter from './components/ContainerImageCenter';
+import ImageSlider from './components/ImageSlider';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,6 +22,14 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : '#ffff',
   };
+  const images = [
+    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg?auto=compress&cs=tinysrgb&w=600',
+  ];
 
   return (
     <View style={backgroundStyle}>
@@ -34,21 +43,9 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
+        <ImageSlider images={images} />
+
         <View style={styles.sectionContainer}>
-          <ScrollView
-            style={{flex: 1}}
-            pagingEnabled={true}
-            horizontal={true}
-            scrollEventThrottle={16}
-            showsHorizontalScrollIndicator={false}
-            >
-            <View>
-              <Text>Image 1</Text>
-            </View>
-            <View>
-              <Text>Image 2</Text>
-            </View>
-          </ScrollView>
           <SizedBox height={20} />
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
