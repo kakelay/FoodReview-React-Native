@@ -30,10 +30,26 @@ function App(): React.JSX.Element {
       />
       <AppBar title1="location" title2="បុរីពិភពថ្មីចំការដូង" />
       <ContainerImageCenter />
+
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <View style={styles.sectionContainer}>
+          <ScrollView
+            style={{flex: 1}}
+            pagingEnabled={true}
+            horizontal={true}
+            scrollEventThrottle={16}
+            showsHorizontalScrollIndicator={false}
+            >
+            <View>
+              <Text>Image 1</Text>
+            </View>
+            <View>
+              <Text>Image 2</Text>
+            </View>
+          </ScrollView>
+          <SizedBox height={20} />
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
           <TextInput
