@@ -23,16 +23,16 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <View style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <AppBar title1="location" title2="បុរីពិភពថ្មីចំការដូង" />
+      <ContainerImageCenter />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <AppBar title1="location" title2="បុរីពិភពថ្មីចំការដូង" />
-        <ContainerImageCenter />
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>UserName</Text>
           <SizedBox height={8} />
@@ -57,9 +57,17 @@ function App(): React.JSX.Element {
             placeholder="Enter your phone number"
             keyboardType="phone-pad"
           />
+          <SizedBox height={8} />
+          <Text style={styles.sectionTitle}>Address</Text>
+          <SizedBox height={8} />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Enter your phone number"
+            keyboardType="phone-pad"
+          />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
