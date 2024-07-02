@@ -30,7 +30,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({images}) => {
   };
 
   return (
-    <View style={{marginVertical: 8}}>
+    <View style={{marginTop: 8}}>
       <ScrollView
         pagingEnabled
         horizontal
