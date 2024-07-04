@@ -56,9 +56,10 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    paddingHorizontal: 16,
-  },
+   scrollView: {
+    backgroundColor: Colors.lighter,
+   }
+
 });
 
 export default App;
